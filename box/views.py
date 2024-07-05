@@ -14,6 +14,7 @@ class TeacherDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
 
+
 class TeacherPostsList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
 
@@ -28,6 +29,7 @@ class TeacherPostsList(generics.ListCreateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class TeacherVideosList(generics.ListCreateAPIView):
     serializer_class = VideoSerializer
@@ -44,9 +46,11 @@ class TeacherVideosList(generics.ListCreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class PostsListCreate(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
@@ -56,6 +60,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 class VideoListCreate(generics.ListCreateAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+
 
 class VideoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Video.objects.all()
